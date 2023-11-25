@@ -43,7 +43,7 @@ def setup_function(file_name):
 
 def main():
 
-    file_name = "simplefin-alert.pickle"
+    file_name = "simplefin-data.pickle"
 
     try:
 
@@ -96,7 +96,9 @@ def main():
             send_via_apprise(apprise_url,apprise_tag,error_string)
 
     else:
-        print('No Accounts in Error State')
+        print('No SimpleFin Accounts in Error State')
+        if apprise_url:
+            send_via_apprise(apprise_url,apprise_tag,'No SimpleFin Accounts in Error State')
     
 if __name__ == "__main__":
     main()
